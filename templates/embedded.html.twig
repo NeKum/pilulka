@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for post in posts %}
+        <blockquote class="twitter-tweet" data-conversation="none">
+            <a href="https://twitter.com/x/status/{{ post.id }}"></a>
+        </blockquote>
+    {% endfor %}
+{% endblock %}

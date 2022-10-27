@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">date</th>
+                        <th scope="col">text</th>
+                        <th scope="col">link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ post.created_at|date('d.m.Y H:i:s') }}</td>
+                            <td>{{ post.text }}</td>
+                            <td><a href="https://twitter.com/x/status/{{ post.id }}" target="_blank" class="text-decoration-none">&#128279;</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
