@@ -1,19 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Service;
 
-class Pilulka
+class Pilulka extends Subject
 {
-    private const QUERY = 'pilulka.cz OR #pilulkacz OR #pilulka';
-    private const LIMIT = 100;
-
-    public function __construct(
-        private readonly Twitter $twitter
-    ) {
-    }
-
-    public function getPosts(): array
-    {
-        return $this->twitter->getPosts(self::QUERY, self::LIMIT);
-    }
+    protected const QUERY = 'pilulka.cz OR #pilulkacz OR #pilulka';
+    protected const LIMIT = 100;
 }

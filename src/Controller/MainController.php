@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
-use App\Service\Pilulka;
+use App\Service\Subject;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +15,9 @@ class MainController extends AbstractController
     private array $posts;
 
     public function __construct(
-        private readonly Pilulka $pilulka
+        private readonly Subject $subject
     ) {
-        $this->posts = $this->pilulka->getPosts();
+        $this->posts = $this->subject->getPosts();
     }
 
     #[Route('/', name: 'app_homepage')]
